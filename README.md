@@ -1,48 +1,64 @@
-# readme-templates
+# PROJECT NAME
 
->Templates para empezar a trabjar con de forma rápida utilizando los standar de common-readme. Estos se aplican en [nuwe.io](https://nuwe.io)
+Project_name: utilizar nombres que sean facilmente identificables para personas que puedan llegar a tener interés en ese modulo o que estén buscando algo similar.
 
-## Background
+> Breve descripción del proyecto, más o menos 15 - 20 palabras: 
 
-Para facilitar la creación de documentación y el análisis de esta através de un markdown parser se ha creado esta libreria de *templates* de README. 
+Define la uilidad básica del modulo para que easí la gente que tenía dudas respecto al título pueda salir de ellas y decidir si seguir leyendo.
 
-De esta forma nos aseguramos la estandarización y la calidad de la documentación generada en nuestros retos.
+
+**Badges (opcional)** 
+En algunos archivos READMEs, es posible que hayas visto pequeñas imágenes que transmiten metadatos, como si todas las pruebas están pasando o no para el proyecto. Puedes usar [Shields](http://shields.io/) para agregar algunos a tu README. Muchos servicios también tienen instrucciones para agregar una insignia. 
+
+## Background | Not using the common-readme | Not required
+
+Explica el porqué de este proyecto de forma simple y que todo el mundo lo pueda entender (opcional), pero si estás creando un proyecto open source o en búsqueda de trabajo te puede ser útil.
 
 ## Usage
+Antes de comenzar a profundizar en los documentos de la API/Componente, sería genial ver cómo se ve el módulo en acción. Así puedo determinar rápidamente si el JS de ejemplo se ajusta al estilo y al problema deseados. La gente tiene muchas opiniones sobre cosas como promesas / devoluciones de llamada y ES6. Si se ajusta a los requisitos, entonces puedo proceder con más detalles.
 
-Simplente clonar y rellenar cada uno de las secciones con la info que se pide.
+## API/Component
+
+El nombre, la descripción y el uso de este módulo me parecen atractivos. Es muy probable que utilice este módulo en este momento. Solo necesito escanear la API para asegurarme de que haga exactamente lo que necesito y que se integre fácilmente en mi base de código. 
+
+La sección de API debe detallar los objetos y funciones del módulo, sus firmas, tipos de devolución, devoluciones de llamada y eventos en detalle. Los tipos deben incluirse donde no sean obvios. Deben dejarse claras las advertencias.
 
 ## Installation
 
+Dentro de un ecosistema en particular, puede haber una forma común de instalar cosas, como usar Yarn, NuGet o Homebrew. Sin embargo, considere la posibilidad de que quien esté leyendo su archivo README sea un novato y desee más orientación. Enumerar los pasos específicos ayuda a eliminar la ambigüedad y hace que las personas usen su proyecto lo más rápido posible. Si solo se ejecuta en un contexto específico, como una versión de lenguaje de programación o un sistema operativo en particular, o tiene dependencias que deben instalarse manualmente, agregue también una subsección de Requisitos.
+
+
 ```shell
     # Clone or install commands
-    npm clone https://github.com/nuwe-io/readme-templates
+    npm i [project] o npm/yarn i 
 ```
 
-## Reconocimientos 
+```shell
+    # test o run commands
+    npm start
+    npm run dev ...
+```
+## Stack | Not using the common-readme | Not required
 
-- [The art of readme](https://github.com/hackergrrl/art-of-readme)
-- [common-readme](https://github.com/hackergrrl/common-readme)
+Stack tecnológico utilizado y porqué y si se quire reconocimientos a librerias u otros proyectos base del que se parte.
 
+## Roadmap and visuals | Not using the common-readme | Not required
 
-## See more
+Explicación extra, imágenes, wireframes, mockups, GIFs, etc.
 
-Algunos links the licéncias Open source para copiar y pegar:
+## Contribución y Apoyo | Not using the common-readme | Not required
 
-- [Apache License 2.0](https://opensource.org/licenses/Apache-2.0)
-- [BSD 3-Clause "New" or "Revised" license](https://opensource.org/licenses/BSD-3-Clause)
-- [BSD 2-Clause "Simplified" or "FreeBSD" license](https://opensource.org/licenses/BSD-2-Clause)
-- [GNU General Public License (GPL)](https://opensource.org/licenses/gpl-license)
-- [GNU Library or "Lesser" General Public License (LGPL)](https://opensource.org/licenses/lgpl-license)
-- [MIT](https://opensource.org/licenses/MIT)
-- [Mozilla Public License 2.0](https://opensource.org/licenses/MPL-2.0)
-- [Common Development and Distribution License](https://opensource.org/licenses/CDDL-1.0)
-- [Eclipse Public License version 2.0](https://opensource.org/licenses/EPL-2.0)
+Puedes comentar el proceso de que tiene que hacer una persona si quiere colaborar o apoyar el proyecto. 
 
-## Contact info
+## Contact info | Not using the common-readme | Not required  | Recommended
 
-> hello@nuwe.io || Edgar Gago Carrillo
+Pon tu información básica de contacto 
 
-## License
+## Reconocimientos | Not using the common-readme | Not required
 
+Aquí puedes poner información extra sobre las librerias, documentación o proyectos que has utilizado para crear tu proyecto y perason u organizaciones que lo han apoyado
+## License 
+
+Inlcuir la licéncia y el link a esta
 [MIT](https://opensource.org/licenses/MIT)
+
