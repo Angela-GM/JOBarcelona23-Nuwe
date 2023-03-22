@@ -6,6 +6,8 @@ const searchForm = document.querySelector("form");
 const searchResultDiv = document.querySelector(".search-result");
 const container = document.querySelector(".container");
 const filterDiet = document.querySelector("#select-diet");
+
+// Variables declaration
 let filterDietSelect = "All";
 let searchQuery = "";
 
@@ -19,13 +21,14 @@ searchForm.addEventListener("submit", (e) => {
 // select filter diet
 filterDiet.addEventListener("change", () => {
   filterDietSelect = filterDiet.value;
+  fetchAPI();
   console.log("Este es el filtro que se aplicará " + filterDietSelect);
 });
 
 //   Fectch API
 async function fetchAPI() {
   let BASE_URL = "";
-  if (filterDietSelect === "All") {
+  if (filterDietSelect === "All" || filterDietSelect === "") {
     BASE_URL = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&query='${searchQuery}'`;
     console.log("Ha entrado en all fetch");
   } else {
@@ -41,29 +44,17 @@ async function fetchAPI() {
 
 // Show Results
 function generateHTML(results) {
-  container.classList.remove("initial");
   let generatedHTML = "";
-  if (filterDietSelect === "All") {
-    results.map((result) => {
-      generatedHTML += `
-              <div class="item">
-                    <img src=${result.image} alt=${result.title} />
-                    <div class="flex-container">
-                      <h2 class="title">${result.title}</h2>
-                    </div>
-                  </div>`;
-    });
-  } else {
-    results.map((result) => {
-      generatedHTML += `
-              <div class="item">
-                    <img src=${result.image} alt=${result.title} />
-                    <div class="flex-container">
-                      <h2 class="title">${result.title}</h2>
-                    </div>
-                  </div>`;
-    });
-  }
+
+  results.map((result) => {
+    generatedHTML += `
+            <div class="item">
+                  <img src=${result.image} alt=${result.title} />
+                  <div class="flex-container">
+                    <h2 class="title">${result.title}</h2>
+                  </div>
+                </div>`;
+  });
 
   searchResultDiv.innerHTML = generatedHTML;
 }
