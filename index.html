@@ -14,6 +14,23 @@
         <h1 class="brand">Recipe Palette</h1>
         <form>
           <input type="text" placeholder="Search Your Recipe..." />
+          <!-- Filters -->
+          <select id="select-diet">
+            <option selected disabled>Select a type of diet...</option>
+            <option class="diet" value="All">All</option>
+            <option class="diet" value="Gluten Free">Gluten Free</option>
+            <option class="diet" value="Ketogenic">Ketogenic</option>
+            <option class="diet" value="Vegetarian">Vegetarian</option>
+            <option class="diet" value="Lacto-Vegetarian">
+              Lacto-Vegetarian
+            </option>
+            <option class="diet" value="Ovo-Vegetarian">Ovo-Vegetarian</option>
+            <option class="diet" value="Vegan">Vegan</option>
+            <option class="diet" value="Pescetarian">Pescetarian</option>
+            <option class="diet" value="Primal">Primal</option>
+            <option class="diet" value="Low FODMAP">Low FODMAP</option>
+            <option class="diet" value="Whole30">Whole30</option>
+          </select>
           <i class="fa-solid fa-magnifying-glass"></i>
         </form>
         <div class="search-result">
