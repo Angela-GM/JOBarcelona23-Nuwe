@@ -1,55 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Styles CSS -->
-    <link rel="stylesheet" href="style.css" />
-    <title>Recipe Palette</title>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vite App</title>
   </head>
   <body>
-    <section>
-      <div class="container">
-        <h1 class="brand">Recipe Palette</h1>
-        <form>
-          <input type="text" placeholder="Search Your Recipe..." />
-          <!-- Filters -->
-          <select id="select-diet">
-            <option selected disabled>Select a type of diet...</option>
-            <option class="diet" value="All">All</option>
-            <option class="diet" value="Gluten Free">Gluten Free</option>
-            <option class="diet" value="Ketogenic">Ketogenic</option>
-            <option class="diet" value="Vegetarian">Vegetarian</option>
-            <option class="diet" value="Lacto-Vegetarian">
-              Lacto-Vegetarian
-            </option>
-            <option class="diet" value="Ovo-Vegetarian">Ovo-Vegetarian</option>
-            <option class="diet" value="Vegan">Vegan</option>
-            <option class="diet" value="Pescetarian">Pescetarian</option>
-            <option class="diet" value="Primal">Primal</option>
-            <option class="diet" value="Low FODMAP">Low FODMAP</option>
-            <option class="diet" value="Whole30">Whole30</option>
-          </select>
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </form>
-        <div class="search-result">
-          <div class="item">
-            <img src="./images/cake.jpg" alt="cake" />
-            <div class="flex-container">
-              <h2 class="title">Title recipe</h2>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Scripts -->
-    <script src="main.js"></script>
-    <!-- Fontawesome -->
-    <script
-      src="https://kit.fontawesome.com/0dc21b8ed4.js"
-      crossorigin="anonymous"
-    ></script>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>
