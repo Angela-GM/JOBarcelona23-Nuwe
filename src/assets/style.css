@@ -1,7 +1,7 @@
 /* Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,400&display=swap");
 
-:root {
+/* :root {
   --colorWhite: #ffff;
   --colorBlack: #231f20;
   --colorRed: #d52941;
@@ -11,18 +11,39 @@
   --fontFamily: "Poppins", sans-serif;
   --fontTitle: "Arial";
   --fontBody: "Helvetica";
-}
+} */
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* outline: 1px solid red; */
 }
 
 body {
   font-family: var(--fontFamily);
   font-size: var(--fontSize-sm);
 }
+
+/* Results */
+.results {
+  display: flex;
+  flex-wrap: wrap;
+}
+.recipe {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+.recipe img {
+  width: 100%%;
+  object-fit: cover; 
+  
+}
+
+
+
 
 
 /* RESPONSIVE */
