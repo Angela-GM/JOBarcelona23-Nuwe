@@ -36,7 +36,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 // Variables api
 const apiUrl = import.meta.env.VITE_API_URL;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -47,9 +47,15 @@ const data = ref([]);
 // Variable filtros dieta
 const selectedDiet = ref("All");
 
+onMounted(fetchAPI);
+
 //   Fectch API
 async function fetchAPI() {
-  const BASE_URL = `${apiUrl}complexSearch?apiKey=${apiKey}&query=${searchQuery.value}&diet=${selectedDiet.value}`;
+  // Ternario para elegir una url de la API
+  const BASE_URL = searchQuery.value
+    ? `${apiUrl}complexSearch?apiKey=${apiKey}&query=${searchQuery.value}&diet=${selectedDiet.value}&number=2`
+    : `${apiUrl}complexSearch?apiKey=${apiKey}&random&number=2&tags=${selectedDiet.value}`;
+
   console.log("Ha entrado en all fetch");
   const response = await fetch(BASE_URL);
   const responseData = await response.json(); // convertir el resultado en un json
