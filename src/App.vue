@@ -27,10 +27,38 @@
     </form>
 
     <div class="results">
-      <div class="recipe" v-for="recipe in data" :key="recipe.id">
+      <div
+        class="recipe"
+        v-for="recipe in data"
+        :key="recipe.id"
+        @click="showRecipeDetails(recipe)"
+      >
         <img :src="recipe.image" :alt="recipe.title" />
         <h2>{{ recipe.title }}</h2>
       </div>
+    </div>
+
+    <!-- Recipe details -->
+    <div class="modal" v-if="selectedRecipe">
+      <h2>{{ selectedRecipe.title }}</h2>
+      <img :src="selectedRecipe.image" :alt="selectedRecipe.title" />
+      <div class="ingredients">
+        <h3>Ingredients</h3>
+        <ul>
+          <li
+            v-for="ingredient in selectedRecipe.extendedIngredients"
+            :key="selectedRecipe.extendedIngredients.id"
+          >
+            {{ ingredient.original }}
+          </li>
+        </ul>
+      </div>
+
+      <h3>Instructions</h3>
+
+      <p>{{ selectedRecipe.instructions }}</p>
+
+      <button @click="selectedRecipe = null">Back</button>
     </div>
   </section>
 </template>
@@ -46,6 +74,8 @@ const searchQuery = ref("");
 const data = ref([]);
 // Variable filtros dieta
 const selectedDiet = ref("All");
+// Variable id Recipe
+const selectedRecipe = ref(null);
 
 onMounted(fetchAPI);
 
@@ -61,6 +91,16 @@ async function fetchAPI() {
   const responseData = await response.json(); // convertir el resultado en un json
   console.log(responseData.results);
   data.value = responseData.results;
+}
+
+// Function show recipe
+function showRecipeDetails(recipe) {
+  fetch(`${apiUrl}/${recipe.id}/information?apiKey=${apiKey}`)
+    .then((response) => response.json())
+    .then((responseData) => {
+      selectedRecipe.value = responseData;
+      console.log(selectedRecipe.value);
+    });
 }
 </script>
 
