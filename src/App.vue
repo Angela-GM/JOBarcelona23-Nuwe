@@ -1,4 +1,10 @@
 <template>
+  <header>
+    <nav>
+      <Header />
+    </nav>
+  </header>
+
   <section>
     <form action="submit">
       <input
@@ -39,7 +45,7 @@
     </div>
 
     <!-- Recipe details -->
-    <div class="modal" v-if="selectedRecipe">
+    <div class="modal1" v-if="selectedRecipe">
       <h2>{{ selectedRecipe.title }}</h2>
       <img :src="selectedRecipe.image" :alt="selectedRecipe.title" />
       <div class="ingredients">
@@ -65,6 +71,7 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
+import Header from "./components/Header.vue";
 // Variables api
 const apiUrl = import.meta.env.VITE_API_URL;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -83,8 +90,8 @@ onMounted(fetchAPI);
 async function fetchAPI() {
   // Ternario para elegir una url de la API
   const BASE_URL = searchQuery.value
-    ? `${apiUrl}complexSearch?apiKey=${apiKey}&query=${searchQuery.value}&diet=${selectedDiet.value}&number=2`
-    : `${apiUrl}complexSearch?apiKey=${apiKey}&random&number=2&tags=${selectedDiet.value}`;
+    ? `${apiUrl}complexSearch?apiKey=${apiKey}&query=${searchQuery.value}&diet=${selectedDiet.value}&number=8`
+    : `${apiUrl}complexSearch?apiKey=${apiKey}&random&number=8&tags=${selectedDiet.value}`;
 
   console.log("Ha entrado en all fetch");
   const response = await fetch(BASE_URL);
