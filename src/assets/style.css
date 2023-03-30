@@ -47,10 +47,15 @@ nav {
 }
 
 
-/* Search form */
-.container-search {
-  display: flex;
+/* All Sections */
+.section-search, .section-results, .section-details {
+  width: 95%;
+  margin: auto;
 }
+
+
+/* Search form */
+
 
 form i {
   margin-right: 0.8rem;
@@ -69,7 +74,7 @@ form i {
 
 
 /* Results */
-.results {
+.section-results {
   display: flex;
   flex-wrap: wrap;
 }

@@ -1,63 +1,62 @@
 <template>
-  <section>
-    <!-- Component Header -->
-    <Header />
+  <!-- Component Header -->
+  <Header />
+  <section class="section-search">
     <!-- Form search recipe -->
-    <div class="form-search">
-      <form action="submit">
-        <div class="container-search">
-          <!-- Input search recipe -->
-          <div class="input-search">
-            <input
-              v-model="searchQuery"
-              type="text"
-              placeholder="Search Your Recipe..."
-            />
-          </div>
 
-          <div class="form-filters">
-            <!-- Filters -->
-            <select id="select-diet" v-model="selectedDiet" @change="fetchAPI">
-              <option selected disabled>Select a type of diet...</option>
-              <option class="diet" value="All">All</option>
-              <option class="diet" value="Gluten Free">Gluten Free</option>
-              <option class="diet" value="Ketogenic">Ketogenic</option>
-              <option class="diet" value="Vegetarian">Vegetarian</option>
-              <option class="diet" value="Lacto-Vegetarian">
-                Lacto-Vegetarian
-              </option>
-              <option class="diet" value="Ovo-Vegetarian">
-                Ovo-Vegetarian
-              </option>
-              <option class="diet" value="Vegan">Vegan</option>
-              <option class="diet" value="Pescetarian">Pescetarian</option>
-              <option class="diet" value="Primal">Primal</option>
-              <option class="diet" value="Low FODMAP">Low FODMAP</option>
-              <option class="diet" value="Whole30">Whole30</option>
-            </select>
-          </div>
+    <form action="submit" class="form-search">
+      <div class="container-search">
+        <!-- Input search recipe -->
+        <div class="input-search">
+          <input
+            v-model="searchQuery"
+            type="text"
+            placeholder="Search Your Recipe..."
+          />
         </div>
 
-        <div class="btn-search">
-          <button @click.prevent="fetchAPI" class="btn">
-            <i class="fa-solid fa-magnifying-glass"></i>Search Recipes
-          </button>
+        <div class="form-filters">
+          <!-- Filters -->
+          <select id="select-diet" v-model="selectedDiet" @change="fetchAPI">
+            <option selected disabled>Select a type of diet...</option>
+            <option class="diet" value="All">All</option>
+            <option class="diet" value="Gluten Free">Gluten Free</option>
+            <option class="diet" value="Ketogenic">Ketogenic</option>
+            <option class="diet" value="Vegetarian">Vegetarian</option>
+            <option class="diet" value="Lacto-Vegetarian">
+              Lacto-Vegetarian
+            </option>
+            <option class="diet" value="Ovo-Vegetarian">Ovo-Vegetarian</option>
+            <option class="diet" value="Vegan">Vegan</option>
+            <option class="diet" value="Pescetarian">Pescetarian</option>
+            <option class="diet" value="Primal">Primal</option>
+            <option class="diet" value="Low FODMAP">Low FODMAP</option>
+            <option class="diet" value="Whole30">Whole30</option>
+          </select>
         </div>
-      </form>
-    </div>
-
-    <div class="results">
-      <div
-        class="recipe"
-        v-for="recipe in data"
-        :key="recipe.id"
-        @click="showRecipeDetails(recipe)"
-      >
-        <img :src="recipe.image" :alt="recipe.title" />
-        <h2>{{ recipe.title }}</h2>
       </div>
-    </div>
 
+      <div class="btn-search">
+        <button @click.prevent="fetchAPI" class="btn">
+          <i class="fa-solid fa-magnifying-glass"></i>Search Recipes
+        </button>
+      </div>
+    </form>
+  </section>
+
+  <section class="section-results">
+    <div
+      class="recipe"
+      v-for="recipe in data"
+      :key="recipe.id"
+      @click="showRecipeDetails(recipe)"
+    >
+      <img :src="recipe.image" :alt="recipe.title" />
+      <h2>{{ recipe.title }}</h2>
+    </div>
+  </section>
+
+  <section class="section-details">
     <!-- Recipe details -->
     <div class="modal" v-if="selectedRecipe">
       <h2>{{ selectedRecipe.title }}</h2>
@@ -76,7 +75,12 @@
 
       <h3>Instructions</h3>
 
-      <p>{{ selectedRecipe.instructions }}</p>
+      <!-- <p>{{ selectedRecipe.instructions }}</p> -->
+      <ol>
+        <li v-for="steps in selectedRecipe.analyzedInstructions[0].steps">
+          {{ steps.step }}
+        </li>
+      </ol>
 
       <button @click="selectedRecipe = null">Back</button>
     </div>
