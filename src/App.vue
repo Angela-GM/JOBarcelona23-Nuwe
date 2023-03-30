@@ -56,35 +56,58 @@
     </div>
   </section>
 
-  <section class="section-details">
-    <!-- Recipe details -->
-    <div class="modal" v-if="selectedRecipe">
-      <h2>{{ selectedRecipe.title }}</h2>
-      <img :src="selectedRecipe.image" :alt="selectedRecipe.title" />
-      <div class="ingredients">
-        <h3>Ingredients</h3>
-        <ul>
-          <li
-            v-for="ingredient in selectedRecipe.extendedIngredients"
-            :key="selectedRecipe.extendedIngredients.id"
-          >
-            {{ ingredient.original }}
-          </li>
-        </ul>
+  <!-- Modal recipe details -->
+
+  <!-- Overlay -->
+  <transition name="fade">
+    <div class="modal-overlay" v-if="selectedRecipe"></div>
+  </transition>
+
+  <!-- <transition name="fade">
+    <div class="modal-container" v-if="showModal">
+      <h1>Are you sure you want to delete:</h1>
+      <p>{{ task.title }}</p>
+
+      <div class="buttons-modal">
+        <button id="color-red" class="button" @click="deleteTask">
+          Eliminar
+        </button>
+        <button class="button" @click="changeShowModal">Cancelar</button>
       </div>
-
-      <h3>Instructions</h3>
-
-      <!-- <p>{{ selectedRecipe.instructions }}</p> -->
-      <ol>
-        <li v-for="steps in selectedRecipe.analyzedInstructions[0].steps">
-          {{ steps.step }}
-        </li>
-      </ol>
-
-      <button @click="selectedRecipe = null">Back</button>
     </div>
-  </section>
+  </transition> -->
+  <transition name="fade">
+    <section class="section-details">
+      <!-- Recipe details -->
+      <div class="modal-container" v-if="selectedRecipe">
+        <h2>{{ selectedRecipe.title }}</h2>
+        <img :src="selectedRecipe.image" :alt="selectedRecipe.title" />
+        <div class="ingredients">
+          <h3>Ingredients</h3>
+          <ul>
+            <li
+              v-for="ingredient in selectedRecipe.extendedIngredients"
+              :key="selectedRecipe.extendedIngredients.id"
+            >
+              {{ ingredient.original }}
+            </li>
+          </ul>
+        </div>
+
+        <h3>Instructions</h3>
+
+        <ol>
+          <li v-for="steps in selectedRecipe.analyzedInstructions[0].steps">
+            {{ steps.step }}
+          </li>
+        </ol>
+
+        <button @click="selectedRecipe = null && showModal == false">
+          Back
+        </button>
+      </div>
+    </section>
+  </transition>
 </template>
 
 <script setup>
