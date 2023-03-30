@@ -1,36 +1,50 @@
 <template>
-  <header>
-    <nav>
-      <Header />
-    </nav>
-  </header>
-
   <section>
-    <form action="submit">
-      <input
-        v-model="searchQuery"
-        type="text"
-        placeholder="Search Your Recipe..."
-      />
-      <i class="fa-solid fa-magnifying-glass"></i>
-      <!-- Filters -->
-      <select id="select-diet" v-model="selectedDiet" @change="fetchAPI">
-        <option selected disabled>Select a type of diet...</option>
-        <option class="diet" value="All">All</option>
-        <option class="diet" value="Gluten Free">Gluten Free</option>
-        <option class="diet" value="Ketogenic">Ketogenic</option>
-        <option class="diet" value="Vegetarian">Vegetarian</option>
-        <option class="diet" value="Lacto-Vegetarian">Lacto-Vegetarian</option>
-        <option class="diet" value="Ovo-Vegetarian">Ovo-Vegetarian</option>
-        <option class="diet" value="Vegan">Vegan</option>
-        <option class="diet" value="Pescetarian">Pescetarian</option>
-        <option class="diet" value="Primal">Primal</option>
-        <option class="diet" value="Low FODMAP">Low FODMAP</option>
-        <option class="diet" value="Whole30">Whole30</option>
-      </select>
+    <!-- Component Header -->
+    <Header />
+    <!-- Form search recipe -->
+    <div class="form-search">
+      <form action="submit">
+        <div class="container-search">
+          <!-- Input search recipe -->
+          <div class="input-search">
+            <input
+              v-model="searchQuery"
+              type="text"
+              placeholder="Search Your Recipe..."
+            />
+          </div>
 
-      <button @click.prevent="fetchAPI">Submit</button>
-    </form>
+          <div class="form-filters">
+            <!-- Filters -->
+            <select id="select-diet" v-model="selectedDiet" @change="fetchAPI">
+              <option selected disabled>Select a type of diet...</option>
+              <option class="diet" value="All">All</option>
+              <option class="diet" value="Gluten Free">Gluten Free</option>
+              <option class="diet" value="Ketogenic">Ketogenic</option>
+              <option class="diet" value="Vegetarian">Vegetarian</option>
+              <option class="diet" value="Lacto-Vegetarian">
+                Lacto-Vegetarian
+              </option>
+              <option class="diet" value="Ovo-Vegetarian">
+                Ovo-Vegetarian
+              </option>
+              <option class="diet" value="Vegan">Vegan</option>
+              <option class="diet" value="Pescetarian">Pescetarian</option>
+              <option class="diet" value="Primal">Primal</option>
+              <option class="diet" value="Low FODMAP">Low FODMAP</option>
+              <option class="diet" value="Whole30">Whole30</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="btn-search">
+          <button @click.prevent="fetchAPI" class="btn">
+            <i class="fa-solid fa-magnifying-glass"></i>Search Recipes
+          </button>
+        </div>
+      </form>
+    </div>
 
     <div class="results">
       <div
@@ -45,7 +59,7 @@
     </div>
 
     <!-- Recipe details -->
-    <div class="modal1" v-if="selectedRecipe">
+    <div class="modal" v-if="selectedRecipe">
       <h2>{{ selectedRecipe.title }}</h2>
       <img :src="selectedRecipe.image" :alt="selectedRecipe.title" />
       <div class="ingredients">
@@ -90,8 +104,8 @@ onMounted(fetchAPI);
 async function fetchAPI() {
   // Ternario para elegir una url de la API
   const BASE_URL = searchQuery.value
-    ? `${apiUrl}complexSearch?apiKey=${apiKey}&query=${searchQuery.value}&diet=${selectedDiet.value}&number=8`
-    : `${apiUrl}complexSearch?apiKey=${apiKey}&random&number=8&tags=${selectedDiet.value}`;
+    ? `${apiUrl}complexSearch?apiKey=${apiKey}&query=${searchQuery.value}&diet=${selectedDiet.value}&number=2`
+    : `${apiUrl}complexSearch?apiKey=${apiKey}&random&number=2&tags=${selectedDiet.value}`;
 
   console.log("Ha entrado en all fetch");
   const response = await fetch(BASE_URL);

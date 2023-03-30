@@ -1,5 +1,8 @@
 <template>
-  <h1>CookBook</h1>
+  <nav>
+    <img src="logo-cookbook.png" alt="logo cookbook" class="img-logo" />
+    CookBook
+  </nav>
 </template>
 
 <script setup></script>

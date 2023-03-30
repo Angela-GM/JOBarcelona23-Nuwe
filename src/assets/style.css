@@ -13,7 +13,7 @@
   --bg-200: #ebebeb;
   --bg-300: #c2c2c2;
 
-  --fontSize-sm: 16px;
+  --fontSize-sm: 18px;
   --fontFamily: "Poppins", sans-serif;
   --fontTitle: "Arial";
   --fontBody: "Helvetica";
@@ -31,6 +31,43 @@ body {
   font-size: var(--fontSize-sm);
 }
 
+/* Header */
+nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem 0.5rem;
+  font-weight: 800;
+  font-size: 1.6rem;
+}
+
+.img-logo {
+  width: 40px;
+  margin-right:4px;
+}
+
+
+/* Search form */
+.container-search {
+  display: flex;
+}
+
+form i {
+  margin-right: 0.8rem;
+}
+.btn {
+  padding: 1rem 2rem;
+  background-color: var(--primary-100);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight:500;
+  font-size: 1.1rem;
+}
+
+
+
+
 /* Results */
 .results {
   display: flex;
@@ -43,9 +80,14 @@ body {
   width: 30%;
 }
 .recipe img {
-  width: 100%%;
-  object-fit: cover;
+  width: 100%;
+  object-fit: cover; 
+  
 }
+
+
+
+
 
 /* RESPONSIVE */
 /* ========================================================================= / */
@@ -53,14 +95,18 @@ body {
 /* / Móviles en horizontal o tablets en vertical */
 /* ------------------------------------------------------------------------- / */
 @media only screen and (min-width: 768px) {
+
+
 }
 
 /* / Tablets en horizonal y escritorios normales */
 /* ------------------------------------------------------------------------- / */
 @media only screen and (min-width: 1024px) {
+ 
 }
 
 /* / Escritorios muy anchos */
 /* ------------------------------------------------------------------------- */
 @media only screen and (min-width: 1440px) {
+ 
 }
