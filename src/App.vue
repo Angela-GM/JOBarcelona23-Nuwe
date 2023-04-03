@@ -130,7 +130,7 @@
       <div class="extra-info">
         <div class="header-extra">
           <!-- Color background -->
-          <img src="bag-shop.gif" alt="bag shop" />
+          <img src="../src/icons/bag-shop.gif" alt="bag shop" />
         </div>
       </div>
     </section>
