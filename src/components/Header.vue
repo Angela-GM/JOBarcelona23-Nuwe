@@ -1,6 +1,10 @@
 <template>
   <nav>
-    <img src="logo-cookbook.png" alt="logo cookbook" class="img-logo" />
+    <img
+      src="../icons/logo-cookbook.png"
+      alt="logo cookbook"
+      class="img-logo"
+    />
     CookBook
   </nav>
 </template>
