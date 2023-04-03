@@ -7,33 +7,30 @@
     <form action="submit" class="form-search">
       <div class="container-search">
         <!-- Input search recipe -->
-        <div class="input-search">
-          <input
-            v-model="searchQuery"
-            type="text"
-            placeholder="Search Your Recipe..."
-          />
-        </div>
 
-        <div class="form-filters">
-          <!-- Filters -->
-          <select id="select-diet" v-model="selectedDiet" @change="fetchAPI">
-            <option selected disabled>Select a type of diet...</option>
-            <option class="diet" value="All">All</option>
-            <option class="diet" value="Gluten Free">Gluten Free</option>
-            <option class="diet" value="Ketogenic">Ketogenic</option>
-            <option class="diet" value="Vegetarian">Vegetarian</option>
-            <option class="diet" value="Lacto-Vegetarian">
-              Lacto-Vegetarian
-            </option>
-            <option class="diet" value="Ovo-Vegetarian">Ovo-Vegetarian</option>
-            <option class="diet" value="Vegan">Vegan</option>
-            <option class="diet" value="Pescetarian">Pescetarian</option>
-            <option class="diet" value="Primal">Primal</option>
-            <option class="diet" value="Low FODMAP">Low FODMAP</option>
-            <option class="diet" value="Whole30">Whole30</option>
-          </select>
-        </div>
+        <input
+          v-model="searchQuery"
+          type="text"
+          placeholder="Search Your Recipe..."
+        />
+
+        <!-- Filters -->
+        <select id="select-diet" v-model="selectedDiet" @change="fetchAPI">
+          <option selected disabled>Select a type of diet...</option>
+          <option class="diet" value="All">All</option>
+          <option class="diet" value="Gluten Free">Gluten Free</option>
+          <option class="diet" value="Ketogenic">Ketogenic</option>
+          <option class="diet" value="Vegetarian">Vegetarian</option>
+          <option class="diet" value="Lacto-Vegetarian">
+            Lacto-Vegetarian
+          </option>
+          <option class="diet" value="Ovo-Vegetarian">Ovo-Vegetarian</option>
+          <option class="diet" value="Vegan">Vegan</option>
+          <option class="diet" value="Pescetarian">Pescetarian</option>
+          <option class="diet" value="Primal">Primal</option>
+          <option class="diet" value="Low FODMAP">Low FODMAP</option>
+          <option class="diet" value="Whole30">Whole30</option>
+        </select>
       </div>
 
       <div class="btn-search">
@@ -51,8 +48,13 @@
       :key="recipe.id"
       @click="showRecipeDetails(recipe)"
     >
-      <img :src="recipe.image" :alt="recipe.title" />
-      <h2>{{ recipe.title }}</h2>
+      <div>
+        <img :src="recipe.image" :alt="recipe.title" />
+      </div>
+
+      <div>
+        <h4>{{ recipe.title }}</h4>
+      </div>
     </div>
   </section>
 
@@ -60,22 +62,13 @@
 
   <!-- Overlay -->
   <transition name="fade">
-    <div class="modal-overlay" v-if="selectedRecipe"></div>
+    <div
+      @click="selectedRecipe = null"
+      class="modal-overlay"
+      v-if="selectedRecipe"
+    ></div>
   </transition>
 
-  <!-- <transition name="fade">
-    <div class="modal-container" v-if="showModal">
-      <h1>Are you sure you want to delete:</h1>
-      <p>{{ task.title }}</p>
-
-      <div class="buttons-modal">
-        <button id="color-red" class="button" @click="deleteTask">
-          Eliminar
-        </button>
-        <button class="button" @click="changeShowModal">Cancelar</button>
-      </div>
-    </div>
-  </transition> -->
   <transition name="fade">
     <section class="section-details">
       <!-- Recipe details -->
@@ -102,9 +95,7 @@
           </li>
         </ol>
 
-        <button @click="selectedRecipe = null && showModal == false">
-          Back
-        </button>
+        <button @click="selectedRecipe = null" class="btn">Back</button>
       </div>
     </section>
   </transition>
@@ -131,8 +122,8 @@ onMounted(fetchAPI);
 async function fetchAPI() {
   // Ternario para elegir una url de la API
   const BASE_URL = searchQuery.value
-    ? `${apiUrl}complexSearch?apiKey=${apiKey}&query=${searchQuery.value}&diet=${selectedDiet.value}&number=2`
-    : `${apiUrl}complexSearch?apiKey=${apiKey}&random&number=2&tags=${selectedDiet.value}`;
+    ? `${apiUrl}complexSearch?apiKey=${apiKey}&query=${searchQuery.value}&diet=${selectedDiet.value}&number=9`
+    : `${apiUrl}complexSearch?apiKey=${apiKey}&random&number=9&tags=${selectedDiet.value}`;
 
   console.log("Ha entrado en all fetch");
   const response = await fetch(BASE_URL);
