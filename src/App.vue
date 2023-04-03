@@ -73,29 +73,65 @@
     <section class="section-details">
       <!-- Recipe details -->
       <div class="modal-container" v-if="selectedRecipe">
-        <h2>{{ selectedRecipe.title }}</h2>
-        <img :src="selectedRecipe.image" :alt="selectedRecipe.title" />
-        <div class="ingredients">
-          <h3>Ingredients</h3>
-          <ul>
-            <li
-              v-for="ingredient in selectedRecipe.extendedIngredients"
-              :key="selectedRecipe.extendedIngredients.id"
-            >
-              {{ ingredient.original }}
-            </li>
-          </ul>
+        <div class="image-details">
+          <img :src="selectedRecipe.image" :alt="selectedRecipe.title" />
+          <div class="title-details">
+            <h2>{{ selectedRecipe.title }}</h2>
+          </div>
         </div>
 
-        <h3>Instructions</h3>
+        <div class="ingredients">
+          <h3>Ingredients</h3>
 
-        <ol>
-          <li v-for="steps in selectedRecipe.analyzedInstructions[0].steps">
-            {{ steps.step }}
-          </li>
-        </ol>
+          <div class="icons-ingredients">
+            <ul>
+              <li
+                v-for="ingredient in selectedRecipe.extendedIngredients"
+                :key="selectedRecipe.extendedIngredients.id"
+              >
+                <div class="icon">
+                  <i class="fa-regular fa-square-check"></i>
+                </div>
 
-        <button @click="selectedRecipe = null" class="btn">Back</button>
+                <div class="item.ingredients">
+                  {{ ingredient.original }}
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="instructions">
+          <h3>Instructions</h3>
+
+          <ol>
+            <li v-for="steps in selectedRecipe.analyzedInstructions[0].steps">
+              <div class="number">
+                <span
+                  class="number-list"
+                  v-bind:style="{ counterIncrement: 'step-counter' }"
+                ></span>
+              </div>
+
+              <div class="border">
+                {{ steps.step }}
+              </div>
+            </li>
+          </ol>
+        </div>
+        <div class="center-btn">
+          <button @click="selectedRecipe = null" class="btn">
+            Back to Results
+          </button>
+        </div>
+      </div>
+
+      <!-- card extra -->
+      <div class="extra-info">
+        <div class="header-extra">
+          <!-- Color background -->
+          <img src="bag-shop.gif" alt="bag shop" />
+        </div>
       </div>
     </section>
   </transition>
