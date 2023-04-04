@@ -80,24 +80,79 @@
           </div>
         </div>
 
-        <div class="ingredients">
-          <h3>Ingredients</h3>
+        <div class="ingredients-details">
+          <!-- card extra -->
+          <div class="extra-info">
+            <h5>Info</h5>
+            <div class="header-extra">
+              <div class="list-info">
+                <ol>
+                  <li>
+                    <i class="fa-regular fa-clock"></i>
+                    {{ selectedRecipe.readyInMinutes }} minutes
+                  </li>
+                  <li>
+                    <i class="fa-solid fa-utensils"></i>
+                    {{ selectedRecipe.servings }} servings
+                  </li>
+                </ol>
+              </div>
+            </div>
 
-          <div class="icons-ingredients">
-            <ul>
-              <li
-                v-for="ingredient in selectedRecipe.extendedIngredients"
-                :key="selectedRecipe.extendedIngredients.id"
-              >
-                <div class="icon">
-                  <i class="fa-regular fa-square-check"></i>
+            <!-- diet info -->
+            <div
+              v-if="
+                selectedRecipe.glutenFree ||
+                selectedRecipe.vegetarian ||
+                selectedRecipe.vegan ||
+                selectedRecipe.lowFodmap
+              "
+            >
+              <h5>Diet</h5>
+              <div class="header-extra">
+                <div class="list-info">
+                  <ol>
+                    <li v-show="selectedRecipe.glutenFree">
+                      <i class="fa-solid fa-wheat-awn-circle-exclamation"></i>
+                      Gluten Free
+                    </li>
+                    <li v-show="selectedRecipe.vegetarian">
+                      <i class="fa-solid fa-seedling"></i>
+                      Vegetarian
+                    </li>
+                    <li v-show="selectedRecipe.vegan">
+                      <i class="fa-solid fa-leaf"></i>
+                      Vegan
+                    </li>
+                    <li v-show="selectedRecipe.lowFodmap">
+                      <i class="fa-solid fa-apple-whole"></i>
+                      Low FODMAP
+                    </li>
+                  </ol>
                 </div>
+              </div>
+            </div>
+          </div>
 
-                <div class="item.ingredients">
-                  {{ ingredient.original }}
-                </div>
-              </li>
-            </ul>
+          <div class="ingredients">
+            <h3>Ingredients</h3>
+
+            <div class="icons-ingredients">
+              <ul>
+                <li
+                  v-for="ingredient in selectedRecipe.extendedIngredients"
+                  :key="selectedRecipe.extendedIngredients.id"
+                >
+                  <div class="icon">
+                    <i class="fa-regular fa-square-check"></i>
+                  </div>
+
+                  <div class="item.ingredients">
+                    {{ ingredient.original }}
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -119,18 +174,11 @@
             </li>
           </ol>
         </div>
+
         <div class="center-btn">
           <button @click="selectedRecipe = null" class="btn">
             Back to Results
           </button>
-        </div>
-      </div>
-
-      <!-- card extra -->
-      <div class="extra-info">
-        <div class="header-extra">
-          <!-- Color background -->
-          <img src="../src/icons/bag-shop.gif" alt="bag shop" />
         </div>
       </div>
     </section>
