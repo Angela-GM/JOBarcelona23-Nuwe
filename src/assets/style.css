@@ -111,8 +111,22 @@ input, select {
   margin: 24px 12px;
   box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
   cursor: pointer;
+}
+.recipe:hover {
+  filter:brightness(1.1);
+  animation: selectHover 0.8s ease 0s 1 normal forwards;
+}
+/* animation */
+@keyframes selectHover {
+	0% {
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+		transform: scale(1);
+	}
 
-
+	100% {
+		box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+		transform: scale(1.1);
+	}
 }
 .recipe img {
   width: 100%;  
@@ -187,7 +201,7 @@ input, select {
 .title-details {
   position: absolute;
   bottom: 10px;
-  width: 50%;
+  width: 100%;
   background-color: hsla(0, 0%, 36%, 0.6);
   padding: 10px 10px;
   color: white;
@@ -331,6 +345,10 @@ h3 {
     width: 45%;
   }
 
+  .title-details {
+    width: 80%;  
+  }
+
 
 }
 
@@ -339,6 +357,9 @@ h3 {
 @media only screen and (min-width: 1024px) {
   .recipe {
     width: 30%;
+  }
+  .title-details {
+    width: 65%;  
   }
  
 }
@@ -349,7 +370,9 @@ h3 {
 
   .recipe {
     width: 22%;
-
+  }
+  .title-details {
+    width: 55%;  
   }
  
 }
