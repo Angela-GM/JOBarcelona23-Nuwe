@@ -12,8 +12,6 @@ La sección de API debe detallar los objetos y funciones del módulo, sus firmas
 
 ## Installation
 
-Dentro de un ecosistema en particular, puede haber una forma común de instalar cosas, como usar Yarn, NuGet o Homebrew. Sin embargo, considere la posibilidad de que quien esté leyendo su archivo README sea un novato y desee más orientación. Enumerar los pasos específicos ayuda a eliminar la ambigüedad y hace que las personas usen su proyecto lo más rápido posible. Si solo se ejecuta en un contexto específico, como una versión de lenguaje de programación o un sistema operativo en particular, o tiene dependencias que deben instalarse manualmente, agregue también una subsección de Requisitos.
-
 ```shell
     # Clone or install commands
     npm i
@@ -33,7 +31,8 @@ Dentro de un ecosistema en particular, puede haber una forma común de instalar 
 
 ## Roadmap and visuals | Not using the common-readme | Not required
 
-<img src="./src/icons/cookbook01.png" alt="cookbook screenshoot">
+<img src="./src/icons/cookbook01.png" alt="cookbook screenshoot" width="50%">
+<img src="./src/icons/cookbook02.png" alt="cookbook screenshoot" width="50%">
 
 ## Contribución y Apoyo | Not using the common-readme | Not required
 
