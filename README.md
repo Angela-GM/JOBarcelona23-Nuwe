@@ -50,3 +50,5 @@ Web del proyecto: [Vercel](https://jo-barcelona23-nuwe.vercel.app/)
 
 Inlcuir la licéncia y el link a esta
 [MIT](https://opensource.org/licenses/MIT)
+
+[![CodeFactor](https://www.codefactor.io/repository/github/angela-gm/jobarcelona23-nuwe/badge)](https://www.codefactor.io/repository/github/angela-gm/jobarcelona23-nuwe)
