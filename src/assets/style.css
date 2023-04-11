@@ -134,7 +134,7 @@ input, select {
 }
 
 .recipe div>h4 {
-  padding: 1rem 1rem;
+  padding: 1rem;
   color: white;
   font-weight: 400;
 }
@@ -203,13 +203,13 @@ input, select {
   bottom: 10px;
   width: 100%;
   background-color: hsla(0, 0%, 36%, 0.6);
-  padding: 10px 10px;
+  padding: 10px;
   color: white;
 
 }
 
 .ingredients, .instructions {
-  padding: 2rem 2rem;
+  padding: 2rem;
 }
 
 .ingredients {
@@ -305,7 +305,7 @@ h3 {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 1rem 1rem;
+  padding: 1rem;
 
 }
 
