@@ -34,17 +34,15 @@ La sección de API debe detallar los objetos y funciones del módulo, sus firmas
 <img src="./src/icons/cookbook01.png" alt="cookbook screenshoot" width="50%">
 <img src="./src/icons/cookbook02.png" alt="cookbook screenshoot" width="50%">
 
-## Contribución y Apoyo | Not using the common-readme | Not required
-
-Puedes comentar el proceso de que tiene que hacer una persona si quiere colaborar o apoyar el proyecto.
-
 ## Contact info | Not using the common-readme | Not required | Recommended
 
-Pon tu información básica de contacto
+Angela Garcia Muñoz - [LinkedIn](https://www.linkedin.com/in/angela-garcia-mu/)
+
+Correo electrónico: [angelagm0112@gmail.com](mailto:angelagm0112@gmail.com)
+
+Web del proyecto: [Vercel](https://jo-barcelona23-nuwe.vercel.app/)
 
 ## Reconocimientos | Not using the common-readme | Not required
-
-Aquí puedes poner información extra sobre las librerias, documentación o proyectos que has utilizado para crear tu proyecto y perason u organizaciones que lo han apoyado
 
 <a href="https://www.freepik.es/vector-gratis/compra-bolsas-papel-o-plastico-canasta-productos-como-leche-pan-desayunos-conjunto-ilustracion-dibujos-animados_20827894.htm#query=cesta%20ingredientes&position=9&from_view=search&track=ais">Imagen de pch.vector</a> en Freepik
 
