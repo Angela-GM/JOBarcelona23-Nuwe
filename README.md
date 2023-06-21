@@ -1,4 +1,4 @@
-# PROJECT NAME
+# CookBook
 
 JOBarcelona '23 | Frontend - CookBook Web
 
